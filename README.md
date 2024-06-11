@@ -1,2 +1,2 @@
 # ShowdownShogun
-Fully autonomous Pokémon Showdown bot designed to compete and win battles with advanced AI-driven strategies
+Fully autonomous Pokémon Showdown bot designed to compete and win battles with advanced AI-driven strategies powered by keras
