@@ -20,7 +20,7 @@ class OofbigDMG(Player):
             # Goes through moves to find one with highest base power
             GGez = max(battle.available_moves, key=lambda move: move.base_power)
 
-            if battle.can_terastallize:
+            if battle.can_tera:
                 return self.create_order(GGez, terastallize=True) # self.create_order takes in either moves or a pokemon as input. Move objects can have additional parameters (dynamax, terrastal, etc)
             
             # Creates order of highest power moves
