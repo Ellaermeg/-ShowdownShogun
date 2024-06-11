@@ -5,6 +5,7 @@ from poke_env.environment.abstract_battle import AbstractBattle
 from poke_env.player.battle_order import BattleOrder
 import websocket
 import sys
+import numpy as np
 from tabulate import tabulate
 
 
@@ -12,8 +13,32 @@ from tabulate import tabulate
 
 sys.path.append("../src")
 
-#Max damage player creation
+# Team preview with type based heuristics:
+def teampreview_preformance(pokemon_a, pokemon_b):
+    # Evaluate starting pokemon based on its type advantage against others
+    a_on_b = b_on_a = -np.inf
+    for type_ in pokemon_a.types:
+        if type_:
+            a_on_b = max(
+                a_on_b,
+                type_.damage_multiplier(
+                    *pokemon_b.types, type_chart=GenData.from_gen(9).type_chart
+            ),
+        )
 
+    for type_ in pokemon_b.types:
+        if type_:
+            b_on_a = max(
+                b_on_a,
+                type_.damage_multiplier(
+                    *pokemon_a.types, type_chart=GenData.from_gen(8).type_chart
+                ),
+            )
+    # Preformance metric based on difference between the two types
+    return a_on_b - b_on_a
+
+
+#Max damage player creation
 class OofbigDMG(Player):
     def choose_move(self, battle):
         if battle.available_moves:
@@ -29,11 +54,36 @@ class OofbigDMG(Player):
             # If no attacking move, switch out
             return self.choose_random_move(battle) # Chooses either a valid move or swithces out of battle, and always guaranets a valid return order
 
-# PLayer creation
-randomplayer = RandomPlayer()
-max_damage_player = OofbigDMG()
-players = [randomplayer, max_damage_player]
 
+# Max damage with team preview:
+class OofbigDMGWithTeampreview(OofbigDMG):
+    def teampreview(self, battle):
+        mon_performance = {}
+
+        # For each of our pokemons
+        for i, mon in enumerate(battle.team.values()):
+            # We store their average performance against the opponent team
+            mon_performance[i] = np.mean(
+                [
+                    teampreview_preformance(mon, opp)
+                    for opp in battle.opponent_team.values()
+                ]
+            )
+
+        # We sort our mons by performance
+        ordered_mons = sorted(mon_performance, key=lambda k: -mon_performance[k])
+
+        # We start with the one we consider best overall
+        # We use i + 1 as python indexes start from 0
+        #  but showdown's indexes start from 1
+        return "/team " + "".join([str(i + 1) for i in ordered_mons])
+
+
+# PLayer creation
+randomplayer = RandomPlayer(max_concurrent_battles=0)
+player1 = OofbigDMG(max_concurrent_battles=0)
+max_damage_player = OofbigDMGWithTeampreview(max_concurrent_battles=0)
+players = [randomplayer,player1,max_damage_player]
 
 # Implementing teams
 
@@ -166,20 +216,21 @@ Jolly Nature
 - Rest    
 """
 
-p1 = OofbigDMG(battle_format="gen9ou", team=team_1)
-p2 = OofbigDMG(battle_format="gen9ou", team=team_2)
+p1 = OofbigDMG(battle_format="gen9ou", team=team_1, avatar="saturn", max_concurrent_battles=0)
+p2 = OofbigDMG(battle_format="gen9ou", team=team_2, avatar="mars", max_concurrent_battles=0)
 
+p3 = OofbigDMGWithTeampreview(battle_format="gen9ou", team=team_1, avatar="cyrus", max_concurrent_battles=0)
+p4 = OofbigDMGWithTeampreview(battle_format="gen9ou", team=team_2, avatar="jupiter", max_concurrent_battles=0)
 
 # testing battles with custom teams
 async def team_battle_test():
-    await p1.battle_against(p2, n_battles=3)
-    print(f"player 1 won {p1.n_won_battles} / 3 battles")
+    await p3.battle_against(p4, n_battles=3)
+    print(f"player 3 won {p3.n_won_battles} / 3 battles")
 
 asyncio.run(team_battle_test())
 
 
-
-'''# Testing single battles
+# Testing single battles
 
 async def Battle_test():
     await max_damage_player.battle_against(randomplayer, n_battles = 100)
@@ -189,14 +240,12 @@ asyncio.run(Battle_test())
 
 
 # Testing Cross evaluation battles
-
 async def Cross_eval():
     cross_evaluation = await cross_evaluate(players, n_challenges=100)
     cross_evaluation
-
     table = [["-"] + [p.username for p in players]]
     for p_1, results in cross_evaluation.items():
         table.append([p_1] + [cross_evaluation[p_1][p_2] for p_2 in results])
     print(tabulate(table))
 
-asyncio.run(Cross_eval())'''
+asyncio.run(Cross_eval())
