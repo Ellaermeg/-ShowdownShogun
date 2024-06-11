@@ -38,130 +38,132 @@ players = [randomplayer, max_damage_player]
 # Implementing teams
 
 team_1 = """
-Baxcalibur @ Heavy-Duty Boots  
-Ability: Thermal Exchange  
-Tera Type: Dragon  
-EVs: 252 Atk / 4 SpD / 252 Spe  
-Jolly Nature  
-- Icicle Crash  
-- Glaive Rush  
-- Earthquake  
-- Dragon Dance  
-
-Gholdengo @ Choice Specs  
-Ability: Good as Gold  
-Tera Type: Flying  
-EVs: 108 HP / 252 SpA / 148 Spe  
-Modest Nature  
+Probopass @ Rocky Helmet  
+Ability: Magnet Pull  
+Tera Type: Fighting  
+EVs: 252 HP / 252 Def / 4 SpD  
+Bold Nature  
 IVs: 0 Atk  
-- Shadow Ball  
-- Make It Rain  
-- Power Gem  
-- Thunderbolt  
-
-Great Tusk @ Booster Energy  
-Ability: Protosynthesis  
-Tera Type: Ghost / Water  
-EVs: 240 HP / 16 Def / 252 Spe  
-Jolly Nature  
-- Earthquake  
-- Close Combat / Knock Off  
-- Rapid Spin  
+- Body Press  
+- Flash Cannon  
 - Stealth Rock  
-
-Iron Valiant @ Choice Scarf  
-Ability: Quark Drive  
-Tera Type: Fairy  
-EVs: 4 Atk / 252 SpA / 252 Spe  
-Naive Nature  
-- Moonblast  
-- Close Combat  
-- Knock Off  
-- Trick  
-
-Rotom-Wash @ Leftovers  
-Ability: Levitate  
-Tera Type: Steel  
-EVs: 248 HP / 52 Def / 196 SpD / 12 Spe  
-Calm Nature  
-IVs: 0 Atk  
 - Thunder Wave  
-- Hydro Pump  
-- Volt Switch  
-- Protect  
 
-Kingambit @ Leftovers  
-Ability: Supreme Overlord  
+Iron Crown @ Weakness Policy  
+Ability: Quark Drive  
+Tera Type: Water  
+EVs: 80 HP / 252 SpA / 176 Spe  
+Timid Nature  
+IVs: 20 Atk  
+- Calm Mind  
+- Agility  
+- Stored Power  
+- Tachyon Cutter  
+
+Sinistcha @ Heavy-Duty Boots  
+Ability: Heatproof  
 Tera Type: Fairy  
-EVs: 252 Atk / 4 Def / 252 Spe  
+EVs: 252 HP / 160 Def / 96 Spe  
+Bold Nature  
+IVs: 0 Atk  
+- Calm Mind  
+- Matcha Gotcha  
+- Shadow Ball  
+- Strength Sap  
+
+Grimmsnarl (M) @ Light Clay  
+Ability: Prankster  
+Tera Type: Steel  
+EVs: 252 HP / 4 Atk / 252 Def  
+Impish Nature  
+- Light Screen  
+- Reflect  
+- Parting Shot  
+- Spirit Break  
+
+Kyurem @ Never-Melt Ice  
+Ability: Pressure  
+Tera Type: Ice  
+EVs: 180 Atk / 76 SpA / 252 Spe  
+Naughty Nature  
+- Dragon Dance  
+- Icicle Spear  
+- Freeze-Dry  
+- Earth Power  
+
+Great Tusk @ Assault Vest  
+Ability: Protosynthesis  
+Tera Type: Steel  
+EVs: 168 Atk / 244 SpD / 96 Spe  
 Adamant Nature  
-- Kowtow Cleave  
-- Tera Blast  
-- Sucker Punch  
-- Swords Dance  
+- Headlong Rush  
+- Ice Spinner  
+- Knock Off  
+- Rapid Spin  
 """
 team_2 = """
-Baxcalibur @ Heavy-Duty Boots  
-Ability: Thermal Exchange  
-Tera Type: Dragon  
-EVs: 252 Atk / 4 SpD / 252 Spe  
-Jolly Nature  
-- Icicle Crash  
-- Glaive Rush  
-- Earthquake  
-- Dragon Dance  
-
-Gholdengo @ Choice Specs  
-Ability: Good as Gold  
-Tera Type: Flying  
-EVs: 108 HP / 252 SpA / 148 Spe  
+Nothin' Under (Hatterene) @ Assault Vest  
+Ability: Magic Bounce  
+Tera Type: Water  
+EVs: 252 HP / 164 SpA / 68 SpD / 24 Spe  
 Modest Nature  
 IVs: 0 Atk  
-- Shadow Ball  
-- Make It Rain  
-- Power Gem  
-- Thunderbolt  
+- Psyshock  
+- Draining Kiss  
+- Mystical Fire  
+- Future Sight  
 
-Great Tusk @ Booster Energy  
-Ability: Protosynthesis  
-Tera Type: Ghost / Water  
-EVs: 240 HP / 16 Def / 252 Spe  
+Quarter to Three (Darkrai) @ Expert Belt  
+Ability: Bad Dreams  
+Tera Type: Poison  
+EVs: 4 Def / 252 SpA / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Dark Pulse  
+- Sludge Bomb  
+- Ice Beam  
+- Focus Blast  
+
+This Life (Gliscor) (F) @ Toxic Orb  
+Ability: Poison Heal  
+Tera Type: Normal  
+EVs: 244 HP / 128 Atk / 56 SpD / 80 Spe  
 Jolly Nature  
 - Earthquake  
-- Close Combat / Knock Off  
-- Rapid Spin  
-- Stealth Rock  
-
-Iron Valiant @ Choice Scarf  
-Ability: Quark Drive  
-Tera Type: Fairy  
-EVs: 4 Atk / 252 SpA / 252 Spe  
-Naive Nature  
-- Moonblast  
-- Close Combat  
-- Knock Off  
-- Trick  
-
-Rotom-Wash @ Leftovers  
-Ability: Levitate  
-Tera Type: Steel  
-EVs: 248 HP / 52 Def / 196 SpD / 12 Spe  
-Calm Nature  
-IVs: 0 Atk  
-- Thunder Wave  
-- Hydro Pump  
-- Volt Switch  
+- Facade  
+- Swords Dance  
 - Protect  
 
-Kingambit @ Leftovers  
-Ability: Supreme Overlord  
+Light the Candles (Heatran) @ Eject Pack  
+Ability: Flame Body  
 Tera Type: Fairy  
-EVs: 252 Atk / 4 Def / 252 Spe  
-Adamant Nature  
-- Kowtow Cleave  
+EVs: 248 HP / 144 SpA / 116 Spe  
+Modest Nature  
+IVs: 0 Atk  
+- Overheat  
+- Earth Power  
 - Tera Blast  
-- Sucker Punch  
-- Swords Dance  
+- Stealth Rock  
+
+Flowers in a Vase (Ogerpon-Wellspring) (F) @ Wellspring Mask  
+Ability: Water Absorb  
+Tera Type: Water  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Adamant Nature  
+- Ivy Cudgel  
+- Power Whip  
+- Play Rough  
+- Trailblaze  
+
+Back at it Again (Zamazenta) @ Chesto Berry  
+Ability: Dauntless Shield  
+Tera Type: Steel  
+EVs: 112 HP / 216 Def / 180 Spe  
+Jolly Nature  
+- Body Press  
+- Crunch  
+- Iron Defense  
+- Rest    
 """
 
 p1 = OofbigDMG(battle_format="gen9ou", team=team_1)
