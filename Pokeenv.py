@@ -82,8 +82,8 @@ class OofbigDMGWithTeampreview(OofbigDMG):
 # PLayer creation
 randomplayer = RandomPlayer(max_concurrent_battles=0)
 player1 = OofbigDMG(max_concurrent_battles=0)
-max_damage_player = OofbigDMGWithTeampreview(max_concurrent_battles=0)
-players = [randomplayer,player1,max_damage_player]
+max_damage_player_preview = OofbigDMGWithTeampreview(max_concurrent_battles=0)
+players = [randomplayer,player1,max_damage_player_preview]
 
 # Implementing teams
 
@@ -233,8 +233,8 @@ asyncio.run(team_battle_test())
 # Testing single battles
 
 async def Battle_test():
-    await max_damage_player.battle_against(randomplayer, n_battles = 100)
-    print(f"Max damage player won {max_damage_player.n_won_battles} / 100 battles")
+    await max_damage_player_preview.battle_against(randomplayer, n_battles = 100)
+    print(f"Max damage player with won {max_damage_player_preview.n_won_battles} / 100 battles")
 
 asyncio.run(Battle_test())
 
