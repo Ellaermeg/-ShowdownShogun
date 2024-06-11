@@ -8,20 +8,17 @@ import sys
 ''' Account config '''
 
 sys.path.append("../src")
-# No authentication required
+
+'''# No authentication required
 my_account_config = AccountConfiguration("my_username", None)
 player = Player(account_configuration=my_account_config)
 
 # Authentication required
 my_account_config = AccountConfiguration("my_username", "super-secret-password")
-player = Player(account_configuration=my_account_config, server_configuration=...)
+player = Player(account_configuration=my_account_config, server_configuration=...)'''
 
 # Auto-generated configuration for local use
 player = Player()
-
-
-
-
 
 # Testing out RandomPLayer build
 
