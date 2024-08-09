@@ -7,8 +7,9 @@ ShowdownShogun is a fully autonomous Pokémon Showdown bot designed to compete a
 ## Features
 
 - **Autonomous Battle Management**: Automatically handles all aspects of a Pokémon battle, from move selection to team switching.
-- **AI-Driven Strategies**: Utilizes deep learning techniques to make informed decisions during battle.
+- **AI-Driven Strategies**: Utilizes basic machine learning algorithms to make  decisions during battle.
 - **Modular Design**: Easy to extend or modify with new strategies or improvements.
+- **Based on Poke-env**: Uses Poke-env as a framework for reinforcement learning
 
 ## Installation
 
